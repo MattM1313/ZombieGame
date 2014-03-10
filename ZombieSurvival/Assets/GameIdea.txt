@@ -1,0 +1,8 @@
+3 players survive
+1 controlling/spawning zombies
+
+all players gain money from killing zombies (100% for killing blow)
+
+zombie controller gains constant amount + 25% of zombies kill value (total value has to be less then spawn value)
+
+
