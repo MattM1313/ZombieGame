@@ -3,25 +3,29 @@ using System.Collections;
 
 public class MouseLook : MonoBehaviour {
 
-	public Transform t;
-	public Camera camera;
+	public float speed = 5;
+
 	void Start () {
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Plane playerPlane = new Plane(Vector3.up, t.position);
-		Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+		Plane playerPlane = new Plane(Vector3.up, transform.position);
+
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
 		float hitLength = 0.0f;
 
 		if(playerPlane.Raycast(ray, out hitLength))
 		{
 			Vector3 target = ray.GetPoint(hitLength);
-			target = target - t.position;
+
+			target = target - transform.position;
 
 			Quaternion targetRotation = Quaternion.LookRotation(target);
-			t.rotation = targetRotation;
+
+			transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
 		}
 	
 	}
