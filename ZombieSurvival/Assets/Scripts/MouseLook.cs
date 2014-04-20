@@ -15,6 +15,7 @@ public class MouseLook : MonoBehaviour {
 
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+
 		float hitLength = 0.0f;
 
 		if(playerPlane.Raycast(ray, out hitLength))
@@ -26,7 +27,12 @@ public class MouseLook : MonoBehaviour {
 			Quaternion targetRotation = Quaternion.LookRotation(target);
 
 			transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
+
+			//Debug.DrawRay(transform.position, transform.forward*5, Color.red, 0, true);
+
 		}
+
+
 	
 	}
 }
