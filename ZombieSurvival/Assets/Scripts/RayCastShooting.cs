@@ -5,11 +5,17 @@ public class RayCastShooting : MonoBehaviour {
 
 	RaycastHit hit;
 	public Transform pEffect;
+	GameObject[] enemyList;
 
 	void Update () 
 	{
 
-
+		enemyList = GameObject.FindGameObjectsWithTag("Enemy");
+		if(enemyList.Length == 0)
+		{
+			Debug.Log ("You Survived");
+		}
+		Debug.Log(enemyList.Length);
 
 
 		if(Input.GetButtonDown("Fire1"))
