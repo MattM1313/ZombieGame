@@ -16,6 +16,7 @@ public class MouseLook : MonoBehaviour {
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
 
+
 		float hitLength = 0.0f;
 
 		if(playerPlane.Raycast(ray, out hitLength))
@@ -31,6 +32,7 @@ public class MouseLook : MonoBehaviour {
 			//Debug.DrawRay(transform.position, transform.forward*5, Color.red, 0, true);
 
 		}
+
 
 
 	
