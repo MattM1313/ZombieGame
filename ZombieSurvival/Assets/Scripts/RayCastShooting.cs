@@ -15,7 +15,7 @@ public class RayCastShooting : MonoBehaviour {
 		{
 			Debug.Log ("You Survived");
 		}
-		Debug.Log(enemyList.Length);
+		//Debug.Log(enemyList.Length);
 
 
 		if(Input.GetButtonDown("Fire1"))
