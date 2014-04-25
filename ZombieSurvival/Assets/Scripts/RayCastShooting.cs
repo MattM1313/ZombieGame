@@ -6,14 +6,20 @@ public class RayCastShooting : MonoBehaviour {
 	RaycastHit hit;
 	public Transform pEffect;
 	GameObject[] enemyList;
+	public AudioClip soundFx;
+	int time = 0;
 
 	void Update () 
 	{
 
+		time += 1;
+
 		enemyList = GameObject.FindGameObjectsWithTag("Enemy");
 		if(enemyList.Length == 0)
 		{
-			Debug.Log ("You Survived");
+			Debug.Log (time);
+			PlayerPrefs.SetInt("Score", time);
+			Application.LoadLevel("Game Over");
 		}
 		//Debug.Log(enemyList.Length);
 
@@ -32,9 +38,12 @@ public class RayCastShooting : MonoBehaviour {
 
 
 
+
 				}
 
 			}
+
+			audio.PlayOneShot(soundFx);
 
 
 
